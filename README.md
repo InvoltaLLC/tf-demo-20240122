@@ -11,13 +11,13 @@ The following instructions will walk you through setting up the essential tools 
     1. Log into Github according to the following:
     1. Download the hackathon repo with the following command:
         ```bash
-        git clone https://github.com/InvoltaLLC/iks_hackathon.git
+        git clone git@github.com:InvoltaLLC/tf-demo-20240122.git
         ```
-        > Note: The above command will create a directory named 'iks_hackathon' in the current directory
+        > Note: The above command will create a directory named 'tf-demo-20240122' in the current directory
 1. Visual Studio Code
     1. Install VSCode according to [from here](https://code.visualstudio.com/download)
     1. Launch VSCode
-    1. Open the repo by selecting *File -> Open Folder...* in VSCode and selecting the *iks_hackathon* folder created during git setup
+    1. Open the repo by selecting *File -> Open Folder...* in VSCode and selecting the *tf-demo-20240122* folder created during git setup
 
 ## Terraform Cloud Setup
 > Coming soon...
