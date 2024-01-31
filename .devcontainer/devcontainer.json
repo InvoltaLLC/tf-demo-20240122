@@ -8,10 +8,5 @@
         "hashicorp.terraform"
       ]
     }
-  },
-  "postAttachCommand": [
-    "fish",
-    "-c",
-    "mkdir ~/.terraform.d; echo \"$TF_API_TOKEN\" | base64 -d > ~/.terraform.d/credentials.tfrc.json"
-  ]
+  }
 }
