@@ -8,5 +8,12 @@
         "hashicorp.terraform"
       ]
     }
-  }
+  },
+  "mounts": [
+    {
+      "source": "${localEnv:HOME}${localEnv:USERPROFILE}/.terraform.d",
+      "target": "/root/.terraform.d",
+      "type": "bind"
+    }
+  ]
 }
