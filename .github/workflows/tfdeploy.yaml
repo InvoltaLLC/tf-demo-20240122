@@ -15,7 +15,7 @@ jobs:
       - name: "Configure Terraform"
         env:
           TF_CREDS: ${{ secrets.TF_API_TOKEN }}
-          TF_WORKSPACE: "demo1${{ GITHUB_BRANCH }}"
+          TF_WORKSPACE: "demo1${{ env.GITHUB_REF_NAMECH }}"
         run: |
           sudo snap install terraform --classic
 
