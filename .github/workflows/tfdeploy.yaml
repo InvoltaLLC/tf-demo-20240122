@@ -26,6 +26,6 @@ jobs:
 
       - name: "Apply Terraform"
         env:
-          TF_WORKSPACE: "demo1${{ GITHUB_REF_NAME }}"
+          TF_WORKSPACE: "demo1${{ env.GITHUB_REF_NAME }}"
         run: |
           terraform apply --auto-approve
