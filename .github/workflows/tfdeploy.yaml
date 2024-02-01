@@ -1,0 +1,31 @@
+name: Deploy Static Redirector Web Apps
+
+on:
+  workflow_dispatch:
+
+jobs:
+  tfapply:
+    name: "Apply Configuration via Terraform"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v3
+
+      - name: "Configure Terraform"
+        env:
+          TF_CREDS: ${{ secrets.TF_API_TOKEN }}
+          TF_WORKSPACE: "demo1${{ GITHUB_BRANCH }}"
+        run: |
+          sudo snap install terraform --classic
+
+          mkdir /home/runner/.terraform.d/
+          echo "$TF_CREDS" | base64 -d > ~/.terraform.d/credentials.tfrc.json
+          echo Initializing with workspace $TF_WORKSPACE
+          terraform init
+
+      - name: "Apply Terraform"
+        env:
+          TF_WORKSPACE: "demo1${{ GITHUB_BRANCH }}"
+        run: |
+          terraform apply --auto-approve
