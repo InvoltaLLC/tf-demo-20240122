@@ -19,6 +19,21 @@ The following instructions will walk you through setting up the essential tools 
     1. Launch VSCode
     1. Open the repo by selecting *File -> Open Folder...* in VSCode and selecting the *tf-demo-20240122* folder created during git setup
 
+## GitHub Actions Setup
+A pipeline is included to apply this terraform configuration via Terraform Cloud.  
+> The pipeline is currently configured to be manually executed through GitHub.  To automate execution during commits/pulls, add the desired triggers to the ```on:``` section of ```.github/workflows/tfdeploy.yaml```
+
+To ensure this pipeline is able to authenticate to your Terraform Cloud organization, the following procedure must be followed prior to running the pipeline.
+1. Generate a base 64 encoded json document containing credentials to access your environment.  From the supplied devcontainer, this can be accomplished with the following commands:
+    ```bash 
+    tf login
+    # provide credentials when prompted
+
+    cat ~/.terraform.d/credentials.tfrc.json | base64
+    ```
+1. Using the output of the above supplied command, create a GitHub repository secret named ```TF_API_TOKEN```.  Instructions on creating repo secrets can be found at [this link](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository)
+> Note: Organization or Environment secrets may also be used.
+
 ## Terraform Cloud Setup
 > Coming soon...
 
